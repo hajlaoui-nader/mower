@@ -8,10 +8,10 @@ import cats.effect.IO
 
 final class MowerSpec extends PureTestSuite {
   forAll { (o: Orientation) =>
-    spec("identity left then right ") {
+    spec("orientation identity left then right ") {
       IO { assert(right(left(o)) == o) }
     }
-    spec("identity right then left ") {
+    spec("orientation identity right then left ") {
       IO { assert(left(right(o)) == o) }
     }
   }

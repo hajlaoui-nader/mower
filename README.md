@@ -85,7 +85,7 @@ On application bootstrap, we load resource file under `resources/input.txt`, in 
 Having in mind that the JVM threads map directely to the OS native threads, I chose to use `fork/join` operations on Fibers (or green thread), in a seperate thread pool to not block the main thread, and to have unlimited number of green threads.
 
 ## Improvements points
-
+- The `input.txt` file path must be taken as a variable (or maybe from the cloud ?)
 - Validate that multiple mowers can't be on the same initial position;
 - Property based testing is a great tool to validate invariable properties, though, add 
 unit tests to improve the whole coverage.

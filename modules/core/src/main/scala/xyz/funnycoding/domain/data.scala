@@ -46,4 +46,19 @@ object data {
   case class MowerDescription(mower: Mower, commands: List[Command])
 
   case class Lawn(ur: Position, occupied: List[Mower])
+
+  object Lawn {
+    def action(lawn: Lawn, mower: Mower, command: Command): (Lawn, Mower) = {
+      val newMower = command match {
+        case Forward =>
+          Mower.forward(mower)
+        case Right => mower.copy(orientation = Orientation.right(mower.orientation))
+        case Left  => mower.copy(orientation = Orientation.left(mower.orientation))
+      }
+      val newOccupied = lawn.occupied.map {
+        case m => if (m == mower) newMower else m
+      }
+      (Lawn(lawn.ur, newOccupied), newMower)
+    }
+  }
 }

@@ -3,6 +3,7 @@ package xyz.funnycoding.solution
 import cats.effect._
 import xyz.funnycoding.domain.data._
 import xyz.funnycoding.domain.data.Orientation._
+import xyz.funnycoding.domain.data.Lawn._
 import xyz.funnycoding.domain.data.Mower._
 import cats.effect.concurrent._
 import cats.implicits._
@@ -29,19 +30,6 @@ class Worker[F[_]: Sync](mowerDescription: MowerDescription, state: MVar[F, Lawn
           } yield m
       }
     solveImpl(mowerDescription.mower, mowerDescription.commands)
-  }
-
-  private def action(lawn: Lawn, mower: Mower, command: Command): (Lawn, Mower) = {
-    val newMower = command match {
-      case Forward =>
-        forward(mower)
-      case Right => mower.copy(orientation = right(mower.orientation))
-      case Left  => mower.copy(orientation = left(mower.orientation))
-    }
-    val newOccupied = lawn.occupied.map {
-      case m => if (m == mower) newMower else m
-    }
-    (Lawn(lawn.ur, newOccupied), newMower)
   }
 
   private def possibleAction(lawn: Lawn, mower: Mower, command: Command): Boolean = {
