@@ -1,0 +1,6 @@
+version: '3.4'
+services:
+  mower:
+    restart: always
+    image: mower:latest
+    
