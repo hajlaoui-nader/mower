@@ -72,6 +72,7 @@ On application bootstrap, we load resource file under `resources/input.txt`, in 
 
 - Generate the initial problem description
 - Call solution solver:
+    - build the initial `lawn`
     - switch the context to the dedicated thread pool
     - run `solve` algorithm on each `Mower` and its `commands` in a seperate fiber.
         (https://typelevel.org/cats-effect/datatypes/fiber.html)
