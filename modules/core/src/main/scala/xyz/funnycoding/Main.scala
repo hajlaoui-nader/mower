@@ -1,12 +1,12 @@
 package xyz.funnycoding
 
-import xyz.funnycoding.domain.parser
-import xyz.funnycoding.solution._
 import cats.effect._
 import cats.implicits._
-import xyz.funnycoding.modules.Solutions
+import xyz.funnycoding.domain._
+import xyz.funnycoding.effect._
+import xyz.funnycoding.modules._
 import cats.data.Validated._
-import xyz.funnycoding.algebras.LiveFileReader
+import xyz.funnycoding.algebras._
 import scala.concurrent.ExecutionContext
 import java.util.concurrent.Executors
 

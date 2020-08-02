@@ -1,4 +1,4 @@
-package xyz.funnycoding.solution
+package xyz.funnycoding.effect
 
 import java.util.concurrent.ThreadFactory
 import java.util.concurrent.atomic.AtomicInteger
