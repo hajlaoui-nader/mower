@@ -5,6 +5,7 @@ Mower
 <a href="https://typelevel.org/cats/"><img src="https://typelevel.org/cats/img/cats-badge.svg" height="40px" align="left" alt="Cats friendly" /></a><br>
 
 <br>
+
 The technology used here are `scala 2.13`, `cats` and `cats effects`.
 
 ## Requirements
